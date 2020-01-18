@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Train Schedules</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Firebase Reference -->
+    <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+
+    <!-- Moment.js Reference -->
+    <script src="http://momentjs.com/downloads/moment.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+</head>
+<body>
+
+    <div class="container">
+      <div class="jumbotron text-center">
+  <div class="container">
+    <h1 class="display-4">Coastal Train Schedule Administration</h1>
+    <p class="lead">Update timetables and view train arrival times for the Coaster Surfer rail system</p>
+  </div>
+</div>
+</div>
+
+<div class="container">
+  <div class="rounded" id="train-table">
+	<h3 id="table-title">Current train schedules</h3>
+  <table class="table table-striped table-hover">
+
+  <thead>
+    <tr>
+      <th scope="col">Train name</th>
+      <th scope="col">Destination</th>
+      <th scope="col">Frequency (minutes)</th>
+      <th scope="col">Next arrival</th>
+      <th scope="col">Minutes to next train</th>
+    </tr>
+  </thead>
+  <tbody id="table-body">
+  </tbody>
+</table>
+</div>
+
+<div class="rounded" id="train-inputs">
+<form id="train-form">
+	<h3>Add new train to schedule</h3>
+	<hr>
+	<p id="instructions">Instructions: Add a new train to the schedule by filling out this form. Enter the time of the first train of the day using a 24-hour clock, such as <i>06:00</i> or <i>21:30</i>. When you submit the form, the values are converted into arrival times that you can communicate to passengers.</p>
+  <div class="form-group">
+    <label for="train-name">Train name</label>
+    <input type="text" class="form-control" id="train-name" required>
+  </div>
+  <div class="form-group">
+    <label for="destination">Destination</label>
+    <input type="text" class="form-control" id="destination" required>
+  </div>
+  <div class="form-group">
+    <label for="frequency">Frequency (in minutes)</label>
+    <input type="number" class="form-control" id="frequency" required>
+  </div>
+  <div class="form-group">
+    <label for="first-train">Time of the first train of the day (in 24-hour format)</label>
+    <input type="text" class="form-control" id="first-train" required>
+  </div>
+  <button class="btn btn-primary" id="add-train" type="submit">Submit</button>
+</form>
+</div>
+
+<div id="last-div">
+	<p id="disclaimer">Note: These schedules are for demonstration purposes only and do not reflect actual routes.
+</p>
+</div>
+
+</div>
+    <script src="assets/javascript/transit.js"></script>
+
+  </body>
+
+</html>
